@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 const useUsers = () => {
-  const users = useSelector((state) => state.users);
+  const users = useSelector((state) => state.users.usersList);
   return { users };
 };
 
@@ -12,7 +12,7 @@ const Users = () => {
       <h1>
         Users:
         <span>
-          {users[0].name} {users[0].surname}
+          {users[0].name.first} {users[0].name.last}
         </span>
       </h1>
     </div>

@@ -8,7 +8,7 @@ export default function Page() {
     <>
       <Nav />
       <Counter />
-      {/* <UserList /> */}
+      <UserList />
     </>
   );
 }

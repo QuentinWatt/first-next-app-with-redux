@@ -1,4 +1,6 @@
-import { countState } from "../state/count";
+export const countState = {
+  count: 0,
+};
 
 export const countReducer = (state = countState, action) => {
   switch (action.type) {
