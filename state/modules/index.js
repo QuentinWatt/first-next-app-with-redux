@@ -1,5 +1,5 @@
-import { countReducer } from "./count";
-import { usersReducer } from "./users";
+import { countReducer } from "./count-store";
+import { usersReducer } from "./users-store";
 import { combineReducers } from "redux";
 
 export default combineReducers({

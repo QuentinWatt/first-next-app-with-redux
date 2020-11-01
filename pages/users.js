@@ -1,8 +1,13 @@
-import UserList from "../components/userlist";
+import UserList from "../components/user-list";
+import { useUsersActions } from "../state/modules/users-store"
 
-export default function Index() {
+export default function Users() {
+  const { fetchUsers } = useUsersActions();
+  fetchUsers();
+
+
   return (
-    <div>
+    <div className="container mx-auto">
       <UserList />
     </div>
   );
