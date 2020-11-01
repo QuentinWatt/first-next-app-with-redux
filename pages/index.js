@@ -1,5 +1,5 @@
-import Page from '../components/page'
+import Nav from "../components/nav";
 
 export default function Index() {
-  return <Page />
+  return <div className="container mx-auto">Home page</div>;
 }
