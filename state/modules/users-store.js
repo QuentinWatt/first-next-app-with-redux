@@ -1,21 +1,19 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useAxiosGet } from '../../hooks/HttpRequests'
+import {useEffect} from 'react'
+import axios from 'axios'
 
 // state
 export const usersState = {
   usersData: null,
-  usersErrors: null, 
-  usersLoading: null
 };
 
 // reducers
 export const usersReducer = (state = usersState, action) => {
   switch (action.type) {
     case "SET_USERS_DATA":
+      console.log(action)
       return {
-        usersData: action.data.data,
-        usersErrors: action.data.error, 
-        usersLoading: action.data.loading
+        usersData: action.data.results,
       };
     default:
       return state;
@@ -24,15 +22,27 @@ export const usersReducer = (state = usersState, action) => {
 
 // actions
 export const useUsersActions = () => {
-  const users = useSelector((state) => state.users.usersList);
+  const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
 
   const fetchUsers = () => {
-    let usersData = useAxiosGet('https://randomuser.me/api/?results=50')
-    dispatch({
-      type: "SET_USERS_DATA",
-      data: usersData
-    });
+    const url = 'https://randomuser.me/api/?results=50'
+    useEffect(() => {
+      axios.get(url)
+      .then(response => {
+          dispatch({
+            type: "SET_USERS_DATA",
+            data: response.data
+          });
+      })
+      .catch(() => {
+        dispatch({
+          type: "SET_USERS_DATA",
+          data: response.data
+        });
+      })
+    }, [url])
   }
+
   return { users, fetchUsers };
 };

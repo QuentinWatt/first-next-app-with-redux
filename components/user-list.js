@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import UserListItem from "./user-list-item";
 import { useUsersActions } from "../state/modules/users-store"
 
@@ -6,8 +5,8 @@ const Users = () => {
   const { users } = useUsersActions();
   let userList = null;
 
-  if (Array.isArray(users) && users.length) {
-    userList = users.map((user, key) => (
+  if (Array.isArray(users.usersData) && users.usersData.length) {
+    userList = users.usersData.map((user, key) => (
       <div key={key} className="mb-3">
         <UserListItem user={user} />
       </div>
