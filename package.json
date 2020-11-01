@@ -14,5 +14,9 @@
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^1.9.6"
+  }
 }

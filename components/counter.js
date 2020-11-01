@@ -21,13 +21,21 @@ const useCounter = () => {
 const Counter = () => {
   const { count, increment, decrement, reset } = useCounter();
   return (
-    <div>
-      <h1>
-        Count: <span>{count}</span>
-      </h1>
-      <button onClick={increment}>+1</button>
-      <button onClick={decrement}>-1</button>
-      <button onClick={reset}>Reset</button>
+    <div className="border p-3 rounded flex flex-col max-w-xs mx-auto">
+      <div className="text-2xl font-bold mb-3 text-center">
+        Count: <span className="font-normal">{count}</span>
+      </div>
+      <div className="flex justify-between">
+        <button className="btn mr-3 w-full" onClick={increment}>
+          +1
+        </button>
+        <button className="btn bg-red-500 mr-3 w-full" onClick={decrement}>
+          -1
+        </button>
+        <button className="btn bg-gray-500 w-full" onClick={reset}>
+          Reset
+        </button>
+      </div>
     </div>
   );
 };
