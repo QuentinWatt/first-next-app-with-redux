@@ -1,5 +1,5 @@
 import Page from '../components/page'
-import { initializeStore } from '../store'
+import { initializeStore } from '../state/store'
 
 export default function SSR() {
   return <Page />
@@ -10,13 +10,6 @@ export default function SSR() {
 // exported when you use `getServerSideProps` or `getInitialProps`
 export function getServerSideProps() {
   const reduxStore = initializeStore()
-  const { dispatch } = reduxStore
-
-  dispatch({
-    type: 'TICK',
-    light: false,
-    lastUpdate: Date.now(),
-  })
 
   return { props: { initialReduxState: reduxStore.getState() } }
 }

@@ -9,12 +9,5 @@ export default function SSG() {
 export function getStaticProps() {
   // Note that in this case we're returning the state directly, without creating
   // the store first (like in /pages/ssr.js), this approach can be better and easier
-  return {
-    props: {
-      initialReduxState: {
-        lastUpdate: Date.now(),
-        light: false,
-      },
-    },
-  }
+  return {}
 }
