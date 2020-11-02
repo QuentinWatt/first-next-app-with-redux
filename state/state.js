@@ -1,7 +1,9 @@
 export const initialState = {
   count: 0,
   users: [],
-  usersFilters: {} 
+  usersFilters: {
+    results: 30
+  } 
 };
 
 export default initialState;

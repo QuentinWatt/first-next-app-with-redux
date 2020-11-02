@@ -4,7 +4,7 @@ import { usersFiltersReducer } from "./users-search-filters";
 import { combineReducers } from "redux";
 
 export default combineReducers({
-  count: countReducer,
   users: usersReducer,
-  usersFilters: usersFiltersReducer
+  usersFilters: usersFiltersReducer,
+  count: countReducer
 });

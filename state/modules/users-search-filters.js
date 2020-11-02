@@ -4,11 +4,20 @@ import { initialState } from "../state"
 // reducers (mutators as I understand them from Vuex)
 export const usersFiltersReducer = (state = initialState.usersFilters, action) => {
   switch (action.type) {
-    case "SET_FILTERS":
+    case "SET_NATIONALITY":
       return {
-        gender: 'male',
-        nat: 'uk',
-        results: 10
+        ...state,
+        nat: action.data,
+      };
+    case "SET_GENDER":
+        return {
+          ...state,
+          gender: action.data,
+        };
+    case "SET_RESULTS":
+      return {
+        ...state,
+        results: action.data,
       };
     default:
       return state;
@@ -18,15 +27,32 @@ export const usersFiltersReducer = (state = initialState.usersFilters, action) =
 // actions
 export const useUsersFiltersActions = () => {
   const dispatch = useDispatch();
-  const setFilters = () =>
+
+  const setNationality = (event) =>
     dispatch({
-      type: "SET_FILTERS",
+      type: "SET_NATIONALITY",
+      data: event.target.value
     });
-  return { setFilters };
+
+  const setGender = (event) =>
+    dispatch({
+      type: "SET_GENDER",
+      data: event.target.value
+    });
+
+  const setResults = (event) =>
+    dispatch({
+      type: "SET_RESULTS",
+      data: event.target.value
+    });
+
+  return { setNationality, setGender, setResults };
 };
 
 // Getters
 export const useUsersFiltersGetters = () => {
-  const usersFilters = useSelector((state) => state.usersFilters);
-  return { usersFilters }
+  const getNationality = useSelector((state) => state.usersFilters.nat);
+  const getGender = useSelector((state) => state.usersFilters.gender);
+  const getResults = useSelector((state) => state.usersFilters.results);
+  return { getNationality, getGender, getResults }
 }

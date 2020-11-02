@@ -11,10 +11,10 @@ const UserListItem = (props) => {
         </div>
         <div className="flex">
           <div className="bg-blue-600 rounded py-1 px-2 text-xs text-white mr-2">
-            {props.user.location.country}
+            {props.user.gender}
           </div>
           <div className="bg-blue-600 rounded py-1 px-2 text-xs text-white">
-            {props.user.location.state}
+            {props.user.nat}
           </div>
         </div>
       </div>
