@@ -1,21 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux'
 
 // Reducer or Mutator
-export const countReducer = (state = 0, action) => {
+export const usersReducer = (state = [], action) => {
   switch (action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
-    case 'RESET':
-      return 0
     default:
       return state
   }
 }
 
 // Actions
-export const useCountActions = () => {
+export const useUsersActions = () => {
   const dispatch = useDispatch()
   
   const increment = () =>
@@ -37,7 +31,7 @@ export const useCountActions = () => {
 }
 
 // Getters or "State Selectors"
-export const useCountGetters = () => {
+export const useUsersGetters = () => {
   const count = useSelector((state) => state.count)
   return { count }
 }

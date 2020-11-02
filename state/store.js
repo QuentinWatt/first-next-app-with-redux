@@ -1,40 +1,10 @@
 import { useMemo } from 'react'
-import { combineReducers } from 'redux'
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { countReducer, countState } from './modules/counter-store'
+import { rootReducer } from './modules'
+import { initialState } from './initial-state'
 
 let store
-
-export const initialState = {
-  count: 0,
-}
-
-const rootReducer = combineReducers({
-  count: countReducer
-})
-
-// const reducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case 'INCREMENT':
-//       return {
-//         ...state,
-//         count: state.count + 1,
-//       }
-//     case 'DECREMENT':
-//       return {
-//         ...state,
-//         count: state.count - 1,
-//       }
-//     case 'RESET':
-//       return {
-//         ...state,
-//         count: initialState.count,
-//       }
-//     default:
-//       return state
-//   }
-// }
 
 function initStore(preloadedState = initialState) {
   return createStore(
