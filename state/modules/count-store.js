@@ -1,28 +1,14 @@
 import { useSelector, useDispatch } from "react-redux";
 
-// state
-export const countState = {
-  count: 0,
-};
-
 // reducers (mutators as I understand them from Vuex)
-export const countReducer = (state = countState, action) => {
+export const countReducer = (state = 0, action) => {
   switch (action.type) {
     case "INCREMENT":
-      return {
-        ...countState,
-        count: state.count + 1,
-      };
+      return state + 1;
     case "DECREMENT":
-      return {
-        ...countState,
-        count: state.count - 1,
-      };
+      return state -1;
     case "RESET":
-      return {
-        ...countState,
-        count: countState.count,
-      };
+      return 0;
     default:
       return state;
   }
@@ -30,7 +16,7 @@ export const countReducer = (state = countState, action) => {
 
 // actions
 export const useCounterActions = () => {
-  const count = useSelector((state) => state.count.count);
+  const count = useSelector((state) => state.count);
   const dispatch = useDispatch();
   const increment = () =>
     dispatch({

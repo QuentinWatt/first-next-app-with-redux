@@ -1,9 +1,6 @@
-import { countState } from "./modules/count-store";
-import { usersState } from "./modules/users-store";
-
 const initialState = {
-  ...countState,
-  ...usersState,
+  count: 0,
+  users: [],
 };
 
 export default initialState;

@@ -2,19 +2,11 @@ import { useSelector, useDispatch } from "react-redux";
 import {useEffect} from 'react'
 import axios from 'axios'
 
-// state
-export const usersState = {
-  users: null,
-};
-
 // reducers
-export const usersReducer = (state = usersState, action) => {
+export const usersReducer = (state = [], action) => {
   switch (action.type) {
     case "SET_USERS_DATA":
-      return {
-        ...usersState,
-        users: action.data.results,
-      };
+      return action.data.results;
     default:
       return state;
   }
