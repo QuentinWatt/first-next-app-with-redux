@@ -3,7 +3,7 @@ import { useUsersFiltersActions, useUsersFiltersGetters } from "../state/modules
 
 const UserFilters = () => {
   const { setNationality, setGender, setResults } = useUsersFiltersActions()
-  const { getNationality, getGender, getResults } = useUsersFiltersGetters()
+  const { getResults } = useUsersFiltersGetters()
   const { fetchUsers } = useUsersActions()
   const nationalities = ["AU", "BR", "CA", "CH", "DE", "DK", "ES", "FI", "FR", "GB", "IE", "IR", "NL", "NZ", "TR", "US"]
   const natOptions = nationalities.map((nat) => (
@@ -60,14 +60,6 @@ const UserFilters = () => {
           Search
         </button>
       </div>
-
-
-      <div>
-        nationality: {getNationality} <br/>
-        gender: {getGender} <br/>
-        results: {getResults}
-      </div>
-
     </div>
   );
 };
