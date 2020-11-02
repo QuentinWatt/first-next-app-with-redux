@@ -4,16 +4,16 @@ import axios from 'axios'
 
 // state
 export const usersState = {
-  usersData: null,
+  users: null,
 };
 
 // reducers
 export const usersReducer = (state = usersState, action) => {
   switch (action.type) {
     case "SET_USERS_DATA":
-      console.log(action)
       return {
-        usersData: action.data.results,
+        ...usersState,
+        users: action.data.results,
       };
     default:
       return state;
@@ -22,7 +22,7 @@ export const usersReducer = (state = usersState, action) => {
 
 // actions
 export const useUsersActions = () => {
-  const users = useSelector((state) => state.users);
+  const usersData = useSelector((state) => state.users);
   const dispatch = useDispatch();
 
   const fetchUsers = () => {
@@ -44,5 +44,5 @@ export const useUsersActions = () => {
     }, [url])
   }
 
-  return { users, fetchUsers };
+  return { usersData, fetchUsers };
 };

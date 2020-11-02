@@ -10,14 +10,17 @@ export const countReducer = (state = countState, action) => {
   switch (action.type) {
     case "INCREMENT":
       return {
+        ...countState,
         count: state.count + 1,
       };
     case "DECREMENT":
       return {
+        ...countState,
         count: state.count - 1,
       };
     case "RESET":
       return {
+        ...countState,
         count: countState.count,
       };
     default:
@@ -26,8 +29,8 @@ export const countReducer = (state = countState, action) => {
 };
 
 // actions
-export const useCounter = () => {
-  const count = useSelector((state) => state.counter);
+export const useCounterActions = () => {
+  const count = useSelector((state) => state.count.count);
   const dispatch = useDispatch();
   const increment = () =>
     dispatch({
@@ -41,5 +44,11 @@ export const useCounter = () => {
     dispatch({
       type: "RESET",
     });
-  return { count, increment, decrement, reset };
+  return {count, increment, decrement, reset };
 };
+
+// // Getters
+// export const useCounterGetters = () => {
+  
+//   return {  }
+// }

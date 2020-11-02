@@ -3,6 +3,6 @@ import { usersReducer } from "./users-store";
 import { combineReducers } from "redux";
 
 export default combineReducers({
-  counter: countReducer,
+  count: countReducer,
   users: usersReducer,
 });
