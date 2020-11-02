@@ -16,7 +16,6 @@ export const countReducer = (state = 0, action) => {
 
 // actions
 export const useCounterActions = () => {
-  const count = useSelector((state) => state.count);
   const dispatch = useDispatch();
   const increment = () =>
     dispatch({
@@ -30,11 +29,11 @@ export const useCounterActions = () => {
     dispatch({
       type: "RESET",
     });
-  return {count, increment, decrement, reset };
+  return { increment, decrement, reset };
 };
 
-// // Getters
-// export const useCounterGetters = () => {
-  
-//   return {  }
-// }
+// Getters
+export const useCounterGetters = () => {
+  const count = useSelector((state) => state.count);
+  return { count }
+}

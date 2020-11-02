@@ -1,8 +1,8 @@
-import { useCounterActions, useCounterGetters } from '../state/modules/count-store' 
+import { useCounterActions, useCounterGetters } from '../state/modules/count' 
 
 const Counter = () => {
-  const { count, increment, decrement, reset } = useCounterActions();
-  // const { count } = useCounterGetters();
+  const { increment, decrement, reset } = useCounterActions();
+  const { count } = useCounterGetters();
   return (
     <div className="border p-3 rounded flex flex-col max-w-xs mx-auto">
       <div className="text-2xl font-bold mb-3 text-center">

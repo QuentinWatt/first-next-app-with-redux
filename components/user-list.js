@@ -1,12 +1,12 @@
 import UserListItem from "./user-list-item";
-import { useUsersActions } from "../state/modules/users-store"
+import { useUsersGetters } from "../state/modules/users"
 
 const Users = () => {
-  const { usersData } = useUsersActions();
+  const { users } = useUsersGetters();
   let usersList = null;
 
-  if (Array.isArray(usersData) && usersData.length) {
-    usersList = usersData.map((user, key) => (
+  if (Array.isArray(users) && users.length) {
+    usersList = users.map((user, key) => (
       <div key={key} className="mb-3">
         <UserListItem user={user} />
       </div>
