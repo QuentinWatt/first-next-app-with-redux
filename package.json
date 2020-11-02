@@ -16,6 +16,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "axios": "^0.21.0",
     "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^1.9.6"
   }

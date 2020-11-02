@@ -1,8 +1,19 @@
-import UserList from "../components/userlist";
+import { useEffect } from "react";
+import UserList from "../components/user-list";
+import UsersSearchFilters from "../components/users-search-filters";
+import { useUsersActions } from "../state/modules/users"
 
-export default function Index() {
+export default function Users() {
+  const { fetchUsers } = useUsersActions();
+  useEffect(() => {
+    fetchUsers()
+  }, [])
+
   return (
-    <div>
+    <div className="container mx-auto">
+      <h1 className="font-bold text-3xl mb-3">Users</h1>
+      
+      <UsersSearchFilters />
       <UserList />
     </div>
   );

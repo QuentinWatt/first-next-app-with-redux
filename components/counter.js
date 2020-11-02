@@ -1,25 +1,8 @@
-import { useSelector, useDispatch } from "react-redux";
-
-const useCounter = () => {
-  const count = useSelector((state) => state.counter.count);
-  const dispatch = useDispatch();
-  const increment = () =>
-    dispatch({
-      type: "INCREMENT",
-    });
-  const decrement = () =>
-    dispatch({
-      type: "DECREMENT",
-    });
-  const reset = () =>
-    dispatch({
-      type: "RESET",
-    });
-  return { count, increment, decrement, reset };
-};
+import { useCounterActions, useCounterGetters } from '../state/modules/count' 
 
 const Counter = () => {
-  const { count, increment, decrement, reset } = useCounter();
+  const { increment, decrement, reset } = useCounterActions();
+  const { count } = useCounterGetters();
   return (
     <div className="border p-3 rounded flex flex-col max-w-xs mx-auto">
       <div className="text-2xl font-bold mb-3 text-center">
