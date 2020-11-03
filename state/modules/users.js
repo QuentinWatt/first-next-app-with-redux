@@ -5,7 +5,7 @@ import axios from 'axios'
 export const usersReducer = (state = [], action) => {
   switch (action.type) {
     case "SET_USERS_DATA":
-      return action.data.results;
+      return action.data
     default:
       return state;
   }
@@ -19,19 +19,23 @@ export const useUsersActions = () => {
   const fetchUsers = () => {
     console.log(url)
 
-    axios.get(url)
+    return new Promise((resolve, reject) => {
+      axios.get(url)
       .then(response => {
-          dispatch({
-            type: "SET_USERS_DATA",
-            data: response.data
-          });
-      })
-      .catch(() => {
         dispatch({
           type: "SET_USERS_DATA",
-          data: response.data
+          data: response.data.results
         });
+        resolve()
       })
+      .catch((error) => {
+        dispatch({
+          type: "SET_USERS_DATA",
+          data: []
+        });
+        reject(error)
+      })
+    })
   }
 
   return { fetchUsers };
@@ -47,6 +51,7 @@ const buildApiUrl = () => {
   let results = useSelector((state) => state.usersFilters.results)
   let gender = useSelector((state) => state.usersFilters.gender)
   let nat = useSelector((state) => state.usersFilters.nat)
+  let seed = useSelector((state) => state.usersFilters.seed)
   let url = 'https://randomuser.me/api/'
   let params = []
 
@@ -58,6 +63,11 @@ const buildApiUrl = () => {
   }
   if(nat){
     params.push(`nat=${nat}`)
+  }
+  // gender and seed filters don't seem to work well together on this api
+  // use the seed only if gender has not been selected
+  if(!gender && seed){
+    params.push(`seed=${seed}`)
   }
 
   if(params.length){
