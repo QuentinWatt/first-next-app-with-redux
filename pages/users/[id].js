@@ -25,14 +25,16 @@ export default function userDetails() {
   }, [users])
 
   return <div className="container mx-auto p-3">
-    <h1 className="font-bold text-3xl mb-3">
-      User Details
-    </h1>
     { currentUser 
       ? 
       <UserProfile user={currentUser}/> 
       : 
-      <Spinner color='bg-blue-500' />
+      <div>
+        <h1 className="font-bold text-3xl mb-3">
+          User Details
+        </h1>
+        <Spinner color='bg-blue-500' />
+      </div>
     }
   </div>;
 }

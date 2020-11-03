@@ -17,19 +17,25 @@ export const useUsersActions = () => {
   const url = buildApiUrl();
 
   const fetchUsers = () => {
-    axios.get(url)
+    console.log(url)
+
+    return new Promise((resolve, reject) => {
+      axios.get(url)
       .then(response => {
-          dispatch({
-            type: "SET_USERS_DATA",
-            data: response.data.results
-          });
-      })
-      .catch(() => {
         dispatch({
           type: "SET_USERS_DATA",
-          data: null
+          data: response.data.results
         });
+        resolve()
       })
+      .catch((error) => {
+        dispatch({
+          type: "SET_USERS_DATA",
+          data: []
+        });
+        reject(error)
+      })
+    })
   }
 
   return { fetchUsers };
@@ -58,7 +64,9 @@ const buildApiUrl = () => {
   if(nat){
     params.push(`nat=${nat}`)
   }
-  if(seed){
+  // gender and seed filters don't seem to work well together on this api
+  // use the seed only if gender has not been selected
+  if(!gender && seed){
     params.push(`seed=${seed}`)
   }
 
