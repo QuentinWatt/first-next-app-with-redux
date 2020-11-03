@@ -34,12 +34,7 @@ npx create-next-app --example with-redux with-redux-app
 yarn create next-app --example with-redux with-redux-app
 ```
 
-## Redux Reducer Structure
+## Documentation
 
-The Redux store is initially created in 1 central store file, which can get quite long.
-
-Smaller files can be easier to manage, and so I prefer to split my code into separated modules, located in the '/modules' directory. This is a structure I have enjoyed working with, and if you're wondering how I came up with this structure, it's from one of the Vue core developers. Take a look at [Chris Fritz's enterprise boilerplate](https://github.com/chrisvfritz/vue-enterprise-boilerplate/blob/master/src/state/modules/users.js).
-
-## Styling
-
-For styling, I love working with [Tailwind CSS](https://tailwindcss.com/). I find the utility based approach to building components so convenient. One of the best advantages is that you can build components without ever having to leave the HTML. This also saves time searching for classes when you have to change styling later.
+1. [Styling](docs/styling.md)
+2. [Application state](docs/state.md)

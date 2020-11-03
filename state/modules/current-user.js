@@ -29,6 +29,11 @@ export const useCurrentUserActions = () => {
 
 // Getters
 export const useCurrentUserGetters = () => {
-  const currentUser = useSelector((state) => state.user);
-  return { user }
+  const userFullName = useSelector((state) => {
+    if(state.currentUser){
+      return `${state.currentUser.name.title} ${state.currentUser.name.first} ${state.currentUser.name.last}`
+    }
+    return null
+  });
+  return { userFullName }
 }

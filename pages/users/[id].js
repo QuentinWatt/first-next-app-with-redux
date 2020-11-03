@@ -14,6 +14,7 @@ export default function userDetails() {
   const { fetchUsers } = useUsersActions()
   const { setCurrentUser } = useCurrentUserActions()
   const currentUser = useSelector((state) => state.currentUser);
+  const loading = useSelector((state) => state.pageStatus.loading);
   
   useEffect(() => {
     if(Array.isArray(users) && !users.length){
@@ -25,16 +26,12 @@ export default function userDetails() {
   }, [users])
 
   return <div className="container mx-auto p-3">
-    { currentUser 
-      ? 
-      <UserProfile user={currentUser}/> 
-      : 
-      <div>
-        <h1 className="font-bold text-3xl mb-3">
-          User Details
-        </h1>
-        <Spinner color='bg-blue-500' />
-      </div>
+    { currentUser && <UserProfile user={currentUser}/> }
+
+    { 
+      (!currentUser || loading)
+      && 
+      <Spinner color='bg-blue-500' />
     }
   </div>;
 }
