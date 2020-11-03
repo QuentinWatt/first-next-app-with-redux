@@ -1,15 +1,17 @@
+import { useCurrentUserGetters } from '../state/modules/current-user'
+
 export default function userProfile(props){
+  const { userFullName } = useCurrentUserGetters()
+
   if(props.user){
     return (
       <div>
         <h1 className="font-bold text-3xl mb-2">
-          { props.user.name ?
-            <span>
-              {props.user.name.title} {props.user.name.first} {props.user.name.last}
-            </span>
-            : 
-            null
-          }
+        { userFullName &&
+          <span>
+            { userFullName }
+          </span>
+        }
         </h1>
         <div>
         { props.user.picture ? 
