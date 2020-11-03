@@ -3,7 +3,9 @@ export const initialState = {
   users: [],
   usersFilters: {
     results: 50,
-  } 
+    seed: 'foobar'
+  },
+  currentUser: null 
 };
 
 export default initialState;

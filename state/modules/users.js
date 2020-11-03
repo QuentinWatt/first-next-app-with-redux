@@ -5,7 +5,7 @@ import axios from 'axios'
 export const usersReducer = (state = [], action) => {
   switch (action.type) {
     case "SET_USERS_DATA":
-      return action.data.results;
+      return action.data
     default:
       return state;
   }
@@ -17,19 +17,17 @@ export const useUsersActions = () => {
   const url = buildApiUrl();
 
   const fetchUsers = () => {
-    console.log(url)
-
     axios.get(url)
       .then(response => {
           dispatch({
             type: "SET_USERS_DATA",
-            data: response.data
+            data: response.data.results
           });
       })
       .catch(() => {
         dispatch({
           type: "SET_USERS_DATA",
-          data: response.data
+          data: null
         });
       })
   }
@@ -47,6 +45,7 @@ const buildApiUrl = () => {
   let results = useSelector((state) => state.usersFilters.results)
   let gender = useSelector((state) => state.usersFilters.gender)
   let nat = useSelector((state) => state.usersFilters.nat)
+  let seed = useSelector((state) => state.usersFilters.seed)
   let url = 'https://randomuser.me/api/'
   let params = []
 
@@ -58,6 +57,9 @@ const buildApiUrl = () => {
   }
   if(nat){
     params.push(`nat=${nat}`)
+  }
+  if(seed){
+    params.push(`seed=${seed}`)
   }
 
   if(params.length){
