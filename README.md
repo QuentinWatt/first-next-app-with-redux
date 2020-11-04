@@ -38,3 +38,4 @@ yarn create next-app --example with-redux with-redux-app
 
 1. [Styling](docs/styling.md)
 2. [Application state](docs/state.md)
+   -- [State Actions](docs/actions.md).

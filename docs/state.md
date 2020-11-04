@@ -24,7 +24,7 @@ A module contains:
 
 This means that any action that needs to be taken on state can be found alongside it's reducer. This also means that actions, can be easily exported from the module, into any component or page that needs access to change state. This are actions like `fetchUsers` or `increment` for the counter.
 
-[More on actions](docs/actions.md).
+[Read more on actions](actions.md).
 
 ### Getters/Selectors
 
