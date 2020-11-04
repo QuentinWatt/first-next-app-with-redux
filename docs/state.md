@@ -24,6 +24,8 @@ A module contains:
 
 This means that any action that needs to be taken on state can be found alongside it's reducer. This also means that actions, can be easily exported from the module, into any component or page that needs access to change state. This are actions like `fetchUsers` or `increment` for the counter.
 
+[More on actions](docs/actions.md).
+
 ### Getters/Selectors
 
 Getters allow you to perform a little bit of repetitive logic on values that may be stored in state individually. A simple example might be filtering out todos with a "done" status.

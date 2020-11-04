@@ -17,8 +17,6 @@ export const useUsersActions = () => {
   const url = buildApiUrl();
 
   const fetchUsers = () => {
-    console.log(url)
-
     return new Promise((resolve, reject) => {
       axios.get(url)
       .then(response => {
