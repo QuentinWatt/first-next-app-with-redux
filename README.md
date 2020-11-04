@@ -36,6 +36,6 @@ yarn create next-app --example with-redux with-redux-app
 
 ## Documentation
 
-1. [Styling](docs/styling.md)
-2. [Application state](docs/state.md)
-   -- [State Actions](docs/actions.md).
+- [Styling](docs/styling.md)
+- [Application state](docs/state.md)
+  - [State Actions](docs/actions.md)
