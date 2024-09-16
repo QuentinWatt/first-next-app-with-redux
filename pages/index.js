@@ -8,13 +8,13 @@ export default function Index() {
 
     <p className="mb-3">
       Take a look at the <Link href="/users">
-          <a className="text-blue-500">user filter app</a>
+          user filter app
         </Link>.
     </p>
 
     <p>
       Or see the simple <Link href="/counter-example">
-          <a className="text-blue-500">counter app</a>
+          counter app
         </Link>.
     </p>
   </div>;

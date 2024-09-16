@@ -5,13 +5,13 @@ const Nav = () => {
     <nav className="border-b p-3">
       <div className="container mx-auto">
         <Link href="/">
-          <a>Home</a>
+          Home
         </Link>
         <Link href="/users">
-          <a>Users</a>
+          Users
         </Link>
         <Link href="/counter-example">
-          <a>Counter</a>
+          Counter
         </Link>
         <style jsx>
           {`

@@ -10,9 +10,7 @@ const Users = () => {
     usersList = users.map((user, index) => (
       <div key={index} className="mb-3">
         <Link href={`/users/${index+1}`}>
-          <a>
-            <UserListItem user={user} />
-          </a>
+          <UserListItem user={user} />
         </Link>
       </div>
     ));
